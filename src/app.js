@@ -1,15 +1,14 @@
+const api = require('./api');
 const cors = require('cors');
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
-const api = require('./api');
-
 const app = express();
 
 app.set('trust proxy', 1);
 
-app.use(morgan('dev'));
+app.use(morgan(process.env.NODE_ENV === 'production' ? ':remote-addr >> :method :url\t:status :response-time ms' : 'dev'));
 app.use(helmet());
 app.use(cors());
 app.use(express.json());

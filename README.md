@@ -1,4 +1,4 @@
-# api.imashamed.net
+# express-api
 
 Personal API solution built with Node.JS/Express
 
